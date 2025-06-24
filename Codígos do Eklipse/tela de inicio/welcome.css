@@ -1,0 +1,86 @@
+body {
+    background: #111;
+    color: #fff;
+    font-family: 'Roboto', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.eklipse-title {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-bottom: 18px;
+    background: linear-gradient(90deg, #00ffe7 0%, #00aaff 50%, #ff00cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0;
+    animation: fadeInGradient 2s ease forwards;
+    font-family: 'Roboto', Arial, sans-serif;
+    text-transform: uppercase;
+}
+@keyframes fadeInGradient {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        filter: blur(8px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-8px) scale(1.03);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 24px;
+    color: #bbb;
+    text-align: center;
+}
+.btn {
+    background: #444;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+.btn:hover {
+    background: #666;
+}
+/* Acrescente ao final do arquivo welcome.css */
+.signin-area {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.btn-signin {
+    background: #222;
+    color: #00ffe7;
+    border: 1px solid #00ffe7;
+    margin-top: 2px;
+    font-weight: 700;
+}
+.btn-signin:hover {
+    background: #00ffe7;
+    color: #111;
+    border: 1px solid #00ffe7;
+}
+.signin-area small {
+    color: #aaa;
+    font-size: 0.95rem;
+}
