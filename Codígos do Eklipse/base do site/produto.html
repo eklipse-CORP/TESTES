@@ -11,9 +11,40 @@
     <div class="logo">Eclipse Tech</div>
   </header>
 
-  <main id="productDetail" class="product-detail-container">
-    <!-- Detalhes do produto serão carregados aqui via JS -->
-  </main>
+  <main class="product-detail-container">
+  <div class="product-wrapper">
+    <div class="product-images">
+      <img id="mainImage" src="" alt="Produto principal" />
+      <div class="thumbnail-list" id="thumbnails">
+        <!-- Miniaturas -->
+      </div>
+    </div>
+
+    <div class="product-info">
+      <h1 id="productTitle"></h1>
+      <div class="category" id="productCategory"></div>
+      <div class="price" id="productPrice"></div>
+      <div class="color-option">Cor: <span>Preto</span></div>
+      <p id="productDescription"></p>
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span class="rating-count">(237 avaliações)</span>
+      </div>
+      <button class="buy-button">Comprar agora</button>
+      <button class="cart-button">Adicionar ao carrinho</button>
+    </div>
+  </div>
+
+  <section class="reviews">
+    <h2>Avaliações dos Clientes</h2>
+    <div class="review">
+      <p><strong>João P.</strong>: Produto excelente, chegou antes do prazo. Muito satisfeito!</p>
+    </div>
+    <div class="review">
+      <p><strong>Maria S.</strong>: Funciona bem e é igual ao da foto. Recomendo!</p>
+    </div>
+  </section>
+</main>
 
   <footer>
     <p>© 2025 Eclipse Tech - Todos os direitos reservados.</p>

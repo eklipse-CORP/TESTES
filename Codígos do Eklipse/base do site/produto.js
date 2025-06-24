@@ -4,7 +4,7 @@ const products = [
         title: "Placa-Mãe ASUS ROG Strix Z590-E",
         category: "placa-mae",
         price: 1850.00,
-        image: "https://images.kabum.com.br/produtos/fotos/211973/placa-mae-asus-rog-strix-z590-e-gaming-wifi-intel-lga-1200-ddr4_1592536977_gg.jpg",
+        image: "https://dlcdnwebimgs.asus.com/files/media/B7CBA71A-2549-4C30-843E-15189BB8E78D/V1/img/z590/kv/hero.png",
         description: "Placa-mãe ASUS com suporte para processadores Intel de 11ª geração, Wi-Fi embutido e componentes premium."
     },
     {
@@ -24,22 +24,33 @@ function getProductIdFromURL() {
 }
 
 function renderProductDetail(productId) {
-    const product = products.find(p => p.id === productId);
-    const container = document.getElementById("productDetail");
+  const product = products.find(p => p.id === productId);
+  if (!product) {
+    document.querySelector(".product-detail-container").innerHTML = "<p>Produto não encontrado.</p>";
+    return;
+  }
 
-    if (!product) {
-        container.innerHTML = "<p>Produto não encontrado.</p>";
-        return;
-    }
+  document.getElementById("productTitle").textContent = product.title;
+  document.getElementById("productCategory").textContent = product.category.toUpperCase();
+  document.getElementById("productPrice").textContent = `R$ ${product.price.toFixed(2).replace(".", ",")}`;
+  document.getElementById("productDescription").textContent = product.description;
+  document.getElementById("mainImage").src = product.image;
 
-    container.innerHTML = `
-        <img src="${product.image}" alt="${product.title}">
-        <h1>${product.title}</h1>
-        <div class="category">${product.category.toUpperCase()}</div>
-        <div class="price">R$ ${product.price.toFixed(2).replace(".", ",")}</div>
-        <p>${product.description}</p>
-    `;
+  const thumbnails = document.getElementById("thumbnails");
+  thumbnails.innerHTML = "";
+
+  // Criando miniaturas (usando a imagem principal repetida como exemplo)
+  for (let i = 0; i < 4; i++) {
+    const thumb = document.createElement("img");
+    thumb.src = product.image;
+    thumb.alt = `Miniatura ${i + 1}`;
+    thumb.addEventListener("click", () => {
+      document.getElementById("mainImage").src = thumb.src;
+    });
+    thumbnails.appendChild(thumb);
+  }
 }
+
 
 const productId = getProductIdFromURL();
 renderProductDetail(productId);
