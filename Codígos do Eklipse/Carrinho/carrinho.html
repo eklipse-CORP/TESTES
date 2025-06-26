@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seu Carrinho</title>
+  <link rel="stylesheet" href="/Codígos do Eklipse/base do site/pages.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Eclipse Tech</div>
+  </header>
+
+  <main class="product-detail-container">
+    <h1>Seu Carrinho</h1>
+    <div id="cartItems"></div>
+    <h2>Total: <span id="cartTotal">R$ 0,00</span></h2>
+  </main>
+
+  <footer>
+    <p>© 2025 Eclipse Tech - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>
+    const cart = getCart();
+    const cartItems = document.getElementById("cartItems");
+    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    document.getElementById("cartTotal").textContent = `R$ ${total.toFixed(2).replace(".", ",")}`;
+
+    if (cart.length === 0) {
+      cartItems.innerHTML = "<p>O carrinho está vazio.</p>";
+    } else {
+      cart.forEach(item => {
+        const el = document.createElement("div");
+        el.innerHTML = `
+          <p><strong>${item.title}</strong> - R$ ${item.price.toFixed(2).replace(".", ",")} x ${item.quantity}</p>
+        `;
+        cartItems.appendChild(el);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -54,3 +54,13 @@ function renderProductDetail(productId) {
 
 const productId = getProductIdFromURL();
 renderProductDetail(productId);
+
+document.querySelector(".buy-button").addEventListener("click", () => {
+    addToCart(productId);
+    // Redirecionar direto pro carrinho, se quiser:
+    // window.location.href = "carrinho.html";
+});
+
+document.querySelector(".cart-button").addEventListener("click", () => {
+    addToCart(productId);
+});
